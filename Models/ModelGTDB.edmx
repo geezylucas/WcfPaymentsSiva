@@ -1,0 +1,1007 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GTDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AmountConfigurations">
+          <Key>
+            <PropertyRef Name="Concept" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Name="Concept" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumCliente" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="EmailCliente" Type="nvarchar" MaxLength="150" />
+          <Property Name="AddressCliente" Type="nvarchar" MaxLength="300" />
+          <Property Name="PhoneCliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusCliente" Type="bit" Nullable="false" />
+          <Property Name="DateTCliente" Type="datetime" Nullable="false" />
+          <Property Name="IdCajero" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Empresa" Type="nvarchar(max)" />
+          <Property Name="CP" Type="nvarchar(max)" />
+          <Property Name="Pais" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Departamento" Type="nvarchar(max)" />
+          <Property Name="NIT" Type="nvarchar(max)" />
+          <Property Name="PhoneOffice" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CortesCajeroes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumCorte" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateTApertura" Type="datetime" Nullable="false" />
+          <Property Name="DateTCierre" Type="datetime" />
+          <Property Name="MontoTotal" Type="float" />
+          <Property Name="Comentario" Type="nvarchar" MaxLength="300" />
+          <Property Name="IdCajero" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="CuentasTelepeajes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumCuenta" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="SaldoCuenta" Type="nvarchar" MaxLength="20" />
+          <Property Name="TypeCuenta" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StatusCuenta" Type="bit" Nullable="false" />
+          <Property Name="StatusResidenteCuenta" Type="bit" Nullable="false" />
+          <Property Name="DateTCuenta" Type="datetime" Nullable="false" />
+          <Property Name="ClienteId" Type="bigint" Nullable="false" />
+          <Property Name="IdCajero" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Historico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="25" />
+          <Property Name="Delegacion" Type="nvarchar" MaxLength="35" />
+          <Property Name="Plaza" Type="nvarchar" MaxLength="35" />
+          <Property Name="Cuerpo" Type="nvarchar" MaxLength="10" />
+          <Property Name="Carril" Type="nvarchar" MaxLength="10" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Clase" Type="nvarchar" MaxLength="10" />
+          <Property Name="Evento" Type="nvarchar" MaxLength="10" />
+          <Property Name="Saldo" Type="float" Nullable="false" />
+          <Property Name="Operador" Type="nvarchar" MaxLength="20" />
+          <Property Name="SaldoAnterior" Type="nvarchar" MaxLength="20" />
+          <Property Name="SaldoActualizado" Type="nvarchar" MaxLength="20" />
+          <Property Name="NumeroCuenta" Type="nvarchar" MaxLength="20" />
+          <Property Name="TipoCuenta" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="HistoricoListas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Extension" Type="nvarchar(max)" />
+          <Property Name="Tamaño" Type="nvarchar(max)" />
+          <Property Name="Fecha_Creacion" Type="datetime" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ListaNegra">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Observacion" Type="nvarchar" MaxLength="280" Nullable="false" />
+          <Property Name="SaldoAnterior" Type="float" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="IdCajero" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Clase" Type="nvarchar" MaxLength="30" />
+          <Property Name="NumCliente" Type="nvarchar" MaxLength="30" />
+          <Property Name="NumCuenta" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="MontosRecargables">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Monto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperacionesCajeroes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="TipoPago" Type="nvarchar" MaxLength="30" />
+          <Property Name="Monto" Type="float" />
+          <Property Name="DateTOperacion" Type="datetime" Nullable="false" />
+          <Property Name="CorteId" Type="bigint" Nullable="false" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CobroTag" Type="float" />
+          <Property Name="NoReferencia" Type="nvarchar(max)" />
+          <Property Name="StatusCancelacion" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperacionesSerBIpagos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumAutoriProveedor" Type="nvarchar" MaxLength="20" />
+          <Property Name="NumAutoriBanco" Type="nvarchar" MaxLength="20" />
+          <Property Name="SaldoAnterior" Type="float" />
+          <Property Name="SaldoModificar" Type="float" />
+          <Property Name="SaldoActual" Type="float" />
+          <Property Name="StatusOperacion" Type="bit" Nullable="false" />
+          <Property Name="DateTOpSerBI" Type="datetime" Nullable="false" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="30" />
+          <Property Name="NoReferencia" Type="nvarchar" MaxLength="30" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Concepto" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Parametrizables">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="origen" Type="nvarchar(max)" />
+          <Property Name="destino" Type="nvarchar(max)" />
+          <Property Name="extension" Type="int" Nullable="false" />
+          <Property Name="destinoresidente" Type="nvarchar(max)" />
+          <Property Name="cruzes" Type="smallint" Nullable="false" />
+          <Property Name="minutos" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumTag" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SaldoTag" Type="nvarchar" MaxLength="20" />
+          <Property Name="StatusTag" Type="bit" Nullable="false" />
+          <Property Name="StatusResidente" Type="bit" Nullable="false" />
+          <Property Name="DateTTag" Type="datetime" Nullable="false" />
+          <Property Name="CuentaId" Type="bigint" Nullable="false" />
+          <Property Name="IdCajero" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CuentasTelepeajes_dbo_Clientes_ClienteId">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CuentasTelepeajes" Type="Self.CuentasTelepeajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasTelepeajes">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OperacionesCajeroes_dbo_CortesCajeroes_CorteId">
+          <End Role="CortesCajeroes" Type="Self.CortesCajeroes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OperacionesCajeroes" Type="Self.OperacionesCajeroes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CortesCajeroes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OperacionesCajeroes">
+              <PropertyRef Name="CorteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Tags_dbo_CuentasTelepeajes_CuentaId">
+          <End Role="CuentasTelepeajes" Type="Self.CuentasTelepeajes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasTelepeajes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tags">
+              <PropertyRef Name="CuentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GTDBModelStoreContainer">
+          <EntitySet Name="AmountConfigurations" EntityType="Self.AmountConfigurations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CortesCajeroes" EntityType="Self.CortesCajeroes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentasTelepeajes" EntityType="Self.CuentasTelepeajes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historico" EntityType="Self.Historico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoricoListas" EntityType="Self.HistoricoListas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListaNegra" EntityType="Self.ListaNegra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MontosRecargables" EntityType="Self.MontosRecargables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperacionesCajeroes" EntityType="Self.OperacionesCajeroes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperacionesSerBIpagos" EntityType="Self.OperacionesSerBIpagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parametrizables" EntityType="Self.Parametrizables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CuentasTelepeajes_dbo_Clientes_ClienteId" Association="Self.FK_dbo_CuentasTelepeajes_dbo_Clientes_ClienteId">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="CuentasTelepeajes" EntitySet="CuentasTelepeajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OperacionesCajeroes_dbo_CortesCajeroes_CorteId" Association="Self.FK_dbo_OperacionesCajeroes_dbo_CortesCajeroes_CorteId">
+            <End Role="CortesCajeroes" EntitySet="CortesCajeroes" />
+            <End Role="OperacionesCajeroes" EntitySet="OperacionesCajeroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Tags_dbo_CuentasTelepeajes_CuentaId" Association="Self.FK_dbo_Tags_dbo_CuentasTelepeajes_CuentaId">
+            <End Role="CuentasTelepeajes" EntitySet="CuentasTelepeajes" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GTDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AmountConfigurations">
+          <Key>
+            <PropertyRef Name="Concept" />
+            <PropertyRef Name="Amount" />
+          </Key>
+          <Property Name="Concept" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="Int16" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailCliente" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="AddressCliente" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCliente" Type="Boolean" Nullable="false" />
+          <Property Name="DateTCliente" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdCajero" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Empresa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pais" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Departamento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NIT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneOffice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CuentasTelepeajes" Relationship="Self.FK_dbo_CuentasTelepeajes_dbo_Clientes_ClienteId" FromRole="Clientes" ToRole="CuentasTelepeajes" />
+        </EntityType>
+        <EntityType Name="CortesCajeroes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumCorte" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateTApertura" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateTCierre" Type="DateTime" Precision="3" />
+          <Property Name="MontoTotal" Type="Double" />
+          <Property Name="Comentario" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IdCajero" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OperacionesCajeroes" Relationship="Self.FK_dbo_OperacionesCajeroes_dbo_CortesCajeroes_CorteId" FromRole="CortesCajeroes" ToRole="OperacionesCajeroes" />
+        </EntityType>
+        <EntityType Name="CuentasTelepeajes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumCuenta" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SaldoCuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TypeCuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StatusCuenta" Type="Boolean" Nullable="false" />
+          <Property Name="StatusResidenteCuenta" Type="Boolean" Nullable="false" />
+          <Property Name="DateTCuenta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClienteId" Type="Int64" Nullable="false" />
+          <Property Name="IdCajero" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_dbo_CuentasTelepeajes_dbo_Clientes_ClienteId" FromRole="CuentasTelepeajes" ToRole="Clientes" />
+          <NavigationProperty Name="Tags" Relationship="Self.FK_dbo_Tags_dbo_CuentasTelepeajes_CuentaId" FromRole="CuentasTelepeajes" ToRole="Tags" />
+        </EntityType>
+        <EntityType Name="Historico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Delegacion" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="Plaza" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="Cuerpo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Carril" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Clase" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Evento" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Saldo" Type="Double" Nullable="false" />
+          <Property Name="Operador" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SaldoAnterior" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SaldoActualizado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NumeroCuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TipoCuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HistoricoListas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Extension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tamaño" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Tipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ListaNegra">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Observacion" Type="String" MaxLength="280" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SaldoAnterior" Type="Double" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdCajero" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Clase" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NumCliente" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NumCuenta" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MontosRecargables">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Monto" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperacionesCajeroes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Concepto" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoPago" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Double" />
+          <Property Name="DateTOperacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CorteId" Type="Int64" Nullable="false" />
+          <Property Name="Numero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CobroTag" Type="Double" />
+          <Property Name="NoReferencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusCancelacion" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CortesCajeroes" Relationship="Self.FK_dbo_OperacionesCajeroes_dbo_CortesCajeroes_CorteId" FromRole="OperacionesCajeroes" ToRole="CortesCajeroes" />
+        </EntityType>
+        <EntityType Name="OperacionesSerBIpagos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumAutoriProveedor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NumAutoriBanco" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SaldoAnterior" Type="Double" />
+          <Property Name="SaldoModificar" Type="Double" />
+          <Property Name="SaldoActual" Type="Double" />
+          <Property Name="StatusOperacion" Type="Boolean" Nullable="false" />
+          <Property Name="DateTOpSerBI" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Numero" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NoReferencia" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Concepto" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Parametrizables">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="origen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="destino" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="extension" Type="Int32" Nullable="false" />
+          <Property Name="destinoresidente" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cruzes" Type="Int16" Nullable="false" />
+          <Property Name="minutos" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumTag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SaldoTag" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StatusTag" Type="Boolean" Nullable="false" />
+          <Property Name="StatusResidente" Type="Boolean" Nullable="false" />
+          <Property Name="DateTTag" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CuentaId" Type="Int64" Nullable="false" />
+          <Property Name="IdCajero" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CuentasTelepeajes" Relationship="Self.FK_dbo_Tags_dbo_CuentasTelepeajes_CuentaId" FromRole="Tags" ToRole="CuentasTelepeajes" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CuentasTelepeajes_dbo_Clientes_ClienteId">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CuentasTelepeajes" Type="Self.CuentasTelepeajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentasTelepeajes">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OperacionesCajeroes_dbo_CortesCajeroes_CorteId">
+          <End Role="CortesCajeroes" Type="Self.CortesCajeroes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OperacionesCajeroes" Type="Self.OperacionesCajeroes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CortesCajeroes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OperacionesCajeroes">
+              <PropertyRef Name="CorteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Tags_dbo_CuentasTelepeajes_CuentaId">
+          <End Role="CuentasTelepeajes" Type="Self.CuentasTelepeajes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasTelepeajes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tags">
+              <PropertyRef Name="CuentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="GTDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AmountConfigurations" EntityType="Self.AmountConfigurations" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="CortesCajeroes" EntityType="Self.CortesCajeroes" />
+          <EntitySet Name="CuentasTelepeajes" EntityType="Self.CuentasTelepeajes" />
+          <EntitySet Name="Historico" EntityType="Self.Historico" />
+          <EntitySet Name="HistoricoListas" EntityType="Self.HistoricoListas" />
+          <EntitySet Name="ListaNegra" EntityType="Self.ListaNegra" />
+          <EntitySet Name="MontosRecargables" EntityType="Self.MontosRecargables" />
+          <EntitySet Name="OperacionesCajeroes" EntityType="Self.OperacionesCajeroes" />
+          <EntitySet Name="OperacionesSerBIpagos" EntityType="Self.OperacionesSerBIpagos" />
+          <EntitySet Name="Parametrizables" EntityType="Self.Parametrizables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CuentasTelepeajes_dbo_Clientes_ClienteId" Association="Self.FK_dbo_CuentasTelepeajes_dbo_Clientes_ClienteId">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="CuentasTelepeajes" EntitySet="CuentasTelepeajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OperacionesCajeroes_dbo_CortesCajeroes_CorteId" Association="Self.FK_dbo_OperacionesCajeroes_dbo_CortesCajeroes_CorteId">
+            <End Role="CortesCajeroes" EntitySet="CortesCajeroes" />
+            <End Role="OperacionesCajeroes" EntitySet="OperacionesCajeroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Tags_dbo_CuentasTelepeajes_CuentaId" Association="Self.FK_dbo_Tags_dbo_CuentasTelepeajes_CuentaId">
+            <End Role="CuentasTelepeajes" EntitySet="CuentasTelepeajes" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GTDBModelStoreContainer" CdmEntityContainer="GTDBEntities">
+          <EntitySetMapping Name="AmountConfigurations">
+            <EntityTypeMapping TypeName="GTDBModel.AmountConfigurations">
+              <MappingFragment StoreEntitySet="AmountConfigurations">
+                <ScalarProperty Name="Concept" ColumnName="Concept" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="GTDBModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="GTDBModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="GTDBModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="GTDBModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="GTDBModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumCliente" ColumnName="NumCliente" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="EmailCliente" ColumnName="EmailCliente" />
+                <ScalarProperty Name="AddressCliente" ColumnName="AddressCliente" />
+                <ScalarProperty Name="PhoneCliente" ColumnName="PhoneCliente" />
+                <ScalarProperty Name="StatusCliente" ColumnName="StatusCliente" />
+                <ScalarProperty Name="DateTCliente" ColumnName="DateTCliente" />
+                <ScalarProperty Name="IdCajero" ColumnName="IdCajero" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="CP" ColumnName="CP" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
+                <ScalarProperty Name="PhoneOffice" ColumnName="PhoneOffice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CortesCajeroes">
+            <EntityTypeMapping TypeName="GTDBModel.CortesCajeroes">
+              <MappingFragment StoreEntitySet="CortesCajeroes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumCorte" ColumnName="NumCorte" />
+                <ScalarProperty Name="DateTApertura" ColumnName="DateTApertura" />
+                <ScalarProperty Name="DateTCierre" ColumnName="DateTCierre" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="IdCajero" ColumnName="IdCajero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuentasTelepeajes">
+            <EntityTypeMapping TypeName="GTDBModel.CuentasTelepeajes">
+              <MappingFragment StoreEntitySet="CuentasTelepeajes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumCuenta" ColumnName="NumCuenta" />
+                <ScalarProperty Name="SaldoCuenta" ColumnName="SaldoCuenta" />
+                <ScalarProperty Name="TypeCuenta" ColumnName="TypeCuenta" />
+                <ScalarProperty Name="StatusCuenta" ColumnName="StatusCuenta" />
+                <ScalarProperty Name="StatusResidenteCuenta" ColumnName="StatusResidenteCuenta" />
+                <ScalarProperty Name="DateTCuenta" ColumnName="DateTCuenta" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="IdCajero" ColumnName="IdCajero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historico">
+            <EntityTypeMapping TypeName="GTDBModel.Historico">
+              <MappingFragment StoreEntitySet="Historico">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Delegacion" ColumnName="Delegacion" />
+                <ScalarProperty Name="Plaza" ColumnName="Plaza" />
+                <ScalarProperty Name="Cuerpo" ColumnName="Cuerpo" />
+                <ScalarProperty Name="Carril" ColumnName="Carril" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Evento" ColumnName="Evento" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Operador" ColumnName="Operador" />
+                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
+                <ScalarProperty Name="SaldoActualizado" ColumnName="SaldoActualizado" />
+                <ScalarProperty Name="NumeroCuenta" ColumnName="NumeroCuenta" />
+                <ScalarProperty Name="TipoCuenta" ColumnName="TipoCuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoricoListas">
+            <EntityTypeMapping TypeName="GTDBModel.HistoricoListas">
+              <MappingFragment StoreEntitySet="HistoricoListas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Tamaño" ColumnName="Tamaño" />
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListaNegra">
+            <EntityTypeMapping TypeName="GTDBModel.ListaNegra">
+              <MappingFragment StoreEntitySet="ListaNegra">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IdCajero" ColumnName="IdCajero" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="NumCliente" ColumnName="NumCliente" />
+                <ScalarProperty Name="NumCuenta" ColumnName="NumCuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MontosRecargables">
+            <EntityTypeMapping TypeName="GTDBModel.MontosRecargables">
+              <MappingFragment StoreEntitySet="MontosRecargables">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperacionesCajeroes">
+            <EntityTypeMapping TypeName="GTDBModel.OperacionesCajeroes">
+              <MappingFragment StoreEntitySet="OperacionesCajeroes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="DateTOperacion" ColumnName="DateTOperacion" />
+                <ScalarProperty Name="CorteId" ColumnName="CorteId" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="CobroTag" ColumnName="CobroTag" />
+                <ScalarProperty Name="NoReferencia" ColumnName="NoReferencia" />
+                <ScalarProperty Name="StatusCancelacion" ColumnName="StatusCancelacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperacionesSerBIpagos">
+            <EntityTypeMapping TypeName="GTDBModel.OperacionesSerBIpagos">
+              <MappingFragment StoreEntitySet="OperacionesSerBIpagos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumAutoriProveedor" ColumnName="NumAutoriProveedor" />
+                <ScalarProperty Name="NumAutoriBanco" ColumnName="NumAutoriBanco" />
+                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
+                <ScalarProperty Name="SaldoModificar" ColumnName="SaldoModificar" />
+                <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
+                <ScalarProperty Name="StatusOperacion" ColumnName="StatusOperacion" />
+                <ScalarProperty Name="DateTOpSerBI" ColumnName="DateTOpSerBI" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="NoReferencia" ColumnName="NoReferencia" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parametrizables">
+            <EntityTypeMapping TypeName="GTDBModel.Parametrizables">
+              <MappingFragment StoreEntitySet="Parametrizables">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="origen" ColumnName="origen" />
+                <ScalarProperty Name="destino" ColumnName="destino" />
+                <ScalarProperty Name="extension" ColumnName="extension" />
+                <ScalarProperty Name="destinoresidente" ColumnName="destinoresidente" />
+                <ScalarProperty Name="cruzes" ColumnName="cruzes" />
+                <ScalarProperty Name="minutos" ColumnName="minutos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GTDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="GTDBModel.Tags">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumTag" ColumnName="NumTag" />
+                <ScalarProperty Name="SaldoTag" ColumnName="SaldoTag" />
+                <ScalarProperty Name="StatusTag" ColumnName="StatusTag" />
+                <ScalarProperty Name="StatusResidente" ColumnName="StatusResidente" />
+                <ScalarProperty Name="DateTTag" ColumnName="DateTTag" />
+                <ScalarProperty Name="CuentaId" ColumnName="CuentaId" />
+                <ScalarProperty Name="IdCajero" ColumnName="IdCajero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="GTDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
